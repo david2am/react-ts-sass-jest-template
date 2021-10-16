@@ -120,23 +120,28 @@ module.exports = {
 npm i -D msw
 ```
 
-### Build handlers.js file
+### Build handlers.ts file
 ```
-// src/mocks/handlers.js
+// src/mocks/handlers.ts
 
 import { graphql } from 'msw'
 
 const handlers = [
-  // first query
-  graphql.query('query', null)
+
+  graphql.query('query', (req, res, ctx) => {
+    return res(
+      ctx.data({})
+    )
+  })
+
 ]
 
 export default handlers
 ```
 
-### Build the server.js file
+### Build the server.ts file
 ```
-// src/mocks/server.js
+// src/mocks/server.ts
 
 import { setupServer } from 'msw/node'
 import handlers from './handlers'
@@ -144,12 +149,12 @@ import handlers from './handlers'
 export const server = setupServer(...handlers)
 ```
 
-### Add msw server to setup.js file
+### Add msw server to setup.ts file
 ```
-// .jest/setup.js
+// .jest/setup.ts
 
 ...
-import { server } from '../src/mocks/server.js'
+import { server } from '../src/mocks/server'
 
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
@@ -177,9 +182,9 @@ if (import.meta.env.MODE === 'development') {
 ...
 ```
 
-### Build browser.js
+### Build browser.ts
 ```
-// src/mocks/browser.js
+// src/mocks/browser.ts
 
 import { setupWorker } from 'msw'
 import { handlers } from './handlers'
@@ -197,9 +202,9 @@ export const worker = setupWorker(...handlers)
 npm i -D whatwg-fetch
 ```
 
-### Add to the setup.js
+### Add to the setup.ts
 ```
-// .jest/setup.js
+// .jest/setup.ts
 
 ...
 import 'whatwg-fetch'
