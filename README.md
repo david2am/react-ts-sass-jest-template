@@ -37,13 +37,30 @@ npm init vite@latest
 ```
 
 
-## Install sass preprocessor
+## Sass configuration
+
+### Install sass preprocessor
 ```
 // cmd | terminal
 
 npm i -D sass
 ```
 
+### Add _variables.sass file
+```
+// src/styles/_variable.sass
+
+$some-color: #6e6b7b
+```
+### Download normalize.css and paste in ./src/styles/normalize.css from https://necolas.github.io/normalize.css/
+
+### Change index.css for index.sass and update
+```
+// ./src/index.sass
+
+@import url('./styles/_variables.sass')
+@import url('./styles/normalize.css')
+```
 
 ## Install jest & testing-library:
 ```
