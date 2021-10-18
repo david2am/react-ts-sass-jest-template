@@ -66,14 +66,14 @@ $some-color: #6e6b7b
 ```
 // cmd | terminal
 
-npm i -D ts-jest @testing-library/jest-dom @testing-library/react
+npm i -D ts-jest jest @testing-library/jest-dom @testing-library/react
 ```
 
 ### Also its types:
 ```
 // cmd | terminal
 
-npm i -D @types/testing-library__jest-dom @types/testing-library__react
+npm i -D @types/jest @types/testing-library__jest-dom @types/testing-library__react
 ```
 
 ### Also user-event:
@@ -111,6 +111,31 @@ module.exports = {
     ...
     "test": "jest --watch"
   },
+```
+
+## Adding svg support to Jest
+
+### Build a svgTransform.js file
+```
+module.exports = {
+    process() {
+        return 'module.exports = {};';
+    },
+    getCacheKey() {
+        // The output is always the same.
+        return 'svgTransform';
+    },
+};
+```
+### Update the jest.config.js
+```
+// jest.config.js
+
+...
+  transform: {
+    "^.+\\.svg$": "<rootDir>/.jest/svgTransform.js"
+  },
+...
 ```
 
 ## Install msw (mock service worker)
