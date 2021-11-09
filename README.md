@@ -235,3 +235,37 @@ npm i -D whatwg-fetch
 import 'whatwg-fetch'
 ...
 ```
+
+## Add path alias
+
+### In tsconfig.json
+```
+// tsconfig.json
+
+{
+  compilerOptions: {
+    ...
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["src/*"]
+    }
+  }
+}
+```
+
+### In vite.config.ts
+```
+// vite.config.ts
+
+...
+import path from 'path'
+
+export default defineConfig({
+  ...
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    }
+  }
+})
+```
