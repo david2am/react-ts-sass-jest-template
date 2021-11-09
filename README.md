@@ -66,14 +66,14 @@ $some-color: #6e6b7b
 ```
 // cmd | terminal
 
-yarn add -D ts-jest jest @testing-library/jest-dom @testing-library/react @testing-library/react-hooks
+yarn add -D ts-jest jest @testing-library/jest-dom @testing-library/react
 ```
 
 ### Also its types:
 ```
 // cmd | terminal
 
-yarn add -D @types/jest @types/testing-library__jest-dom @types/testing-library__react @types/testing-library__react-hooks
+yarn add -D @types/jest @types/testing-library__jest-dom @types/testing-library__react
 ```
 
 ### Also user-event:
@@ -81,6 +81,13 @@ yarn add -D @types/jest @types/testing-library__jest-dom @types/testing-library_
 // cmd | terminal
 
 yarn add -D @testing-library/user-event @testing-library/dom   
+```
+
+### Also react-hooks:
+```
+// cmd | terminal
+
+yarn add -D @testing-library/react-hooks @types/testing-library__react-hooks
 ```
 
 
@@ -137,6 +144,26 @@ module.exports = {
   },
 ...
 ```
+
+## Add asset support to jest
+
+### Install jest-transform-stub
+```
+// cmd | terminal
+
+yarn add -D jest-transform-stub
+```
+### Update jest.config.js
+```
+// ./jest.config.js
+
+...
+"transform": {
+    ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+}
+...
+```
+
 
 ## Install msw (mock service worker)
 ```
