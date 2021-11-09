@@ -43,7 +43,7 @@ npm init vite@latest
 ```
 // cmd | terminal
 
-npm i -D sass
+yarn add -D sass
 ```
 
 ### Add _variables.sass file
@@ -66,21 +66,21 @@ $some-color: #6e6b7b
 ```
 // cmd | terminal
 
-npm i -D ts-jest jest @testing-library/jest-dom @testing-library/react
+yarn add -D ts-jest jest @testing-library/jest-dom @testing-library/react @testing-library/react-hooks
 ```
 
 ### Also its types:
 ```
 // cmd | terminal
 
-npm i -D @types/jest @types/testing-library__jest-dom @types/testing-library__react
+yarn add -D @types/jest @types/testing-library__jest-dom @types/testing-library__react @types/testing-library__react-hooks
 ```
 
 ### Also user-event:
 ```
 // cmd | terminal
 
-npm i -D @testing-library/user-event @testing-library/dom   
+yarn add -D @testing-library/user-event @testing-library/dom   
 ```
 
 
@@ -142,7 +142,7 @@ module.exports = {
 ```
 // cmd | terminal
 
-npm i -D msw
+yarn add -D msw
 ```
 
 ### Build handlers.ts file
@@ -224,7 +224,7 @@ export const worker = setupWorker(...handlers)
 ```
 // cmd | terminal
 
-npm i -D whatwg-fetch
+yarn add -D whatwg-fetch
 ```
 
 ### Add to the setup.ts
