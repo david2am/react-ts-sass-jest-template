@@ -46,21 +46,44 @@ npm init vite@latest
 yarn add -D sass
 ```
 
+### Rename index.css to index.sass
+
+### Scale 10px ~ 1rem
+```
+// ./src/index.sass
+
+html 
+  font-size: 62.5%
+```
+
 ### Add _variables.sass file
 ```
 // src/styles/_variable.sass
 
 $some-color: #6e6b7b
 ```
-### Download normalize.css and paste in ./src/styles/normalize.css from https://necolas.github.io/normalize.css/
 
-### Change index.css for index.sass and update
+### Add _mixins.sass file
 ```
-// ./src/index.sass
+// src/styles/_mixins.sass
 
-@import url('./styles/_variables.sass')
-@import url('./styles/normalize.css')
+@mixin text-overflow($lines)
+  overflow: hidden
+  display: -webkit-box
+  -webkit-line-clamp: $lines
+  -webkit-box-orient: vertical
 ```
+
+### Add normalize.css and paste in ./src/styles/normalize.css from https://necolas.github.io/normalize.css/
+
+### Add _index.sass
+```
+// src/styles/_index.sass
+
+@forward './variables'
+@forward './mixins'
+```
+
 
 ## Install jest & testing-library:
 ```
@@ -120,10 +143,10 @@ module.exports = {
   },
 ```
 
-## Adding svg support to Jest
-
 ### Build a svgTransform.js file
 ```
+// .jest/svgTransform.js
+
 module.exports = {
     process() {
         return 'module.exports = {};';
@@ -144,8 +167,6 @@ module.exports = {
   },
 ...
 ```
-
-## Add asset support to jest
 
 ### Install jest-transform-stub
 ```
